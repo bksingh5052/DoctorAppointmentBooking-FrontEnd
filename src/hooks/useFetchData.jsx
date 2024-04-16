@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { token } from "../config";
+// import { token } from "../config";
 
 const useFetchData = (url)=>{
     const [data, setData] = useState([])
@@ -8,6 +8,7 @@ const useFetchData = (url)=>{
 
     useEffect(()=>{
         const fetchData = async()=>{
+            const token = localStorage.getItem('token')
             setLoading(true)
             try {
                 const res = await fetch(url,{

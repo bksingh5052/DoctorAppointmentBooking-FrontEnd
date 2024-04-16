@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
-import { BASE_URL, token } from "../../config";
+import { BASE_URL } from "../../config";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 import { useContext } from "react";
@@ -12,7 +12,7 @@ const Profile = ({userData}) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [file, useFile]  = useState(null)
   const [loading, setLoading] = useState(false);
-  const { dispatch, user } = useContext(authContext);
+  let { dispatch, user } = useContext(authContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,7 +23,6 @@ const Profile = ({userData}) => {
   });
 
   useEffect(()=>{
-    console.log("user",user)
     setFormData({name:user.name, email:user.email, password:user.password,photo:user.photo, gender:user.gender, bloodType:user.bloodType})
   },[user])
   const navigate = useNavigate();
@@ -44,6 +43,7 @@ const Profile = ({userData}) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const token = localStorage.getItem('token')
     try {
 
       const res = await fetch(`${BASE_URL}/users/${user._id}`, {
@@ -58,7 +58,7 @@ const Profile = ({userData}) => {
       if (!res.ok) {
         throw new Error(message);
       }
-      console.log(data,"data")
+
       dispatch({
         type: "PROFILE_UPDATED",
         payload: {
@@ -67,6 +67,8 @@ const Profile = ({userData}) => {
           role: data.role,
         },
       });
+      user = data;
+
       setLoading(false);
       toast.success(message);
       navigate("/users/profile/me");

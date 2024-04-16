@@ -7,7 +7,7 @@ export const doctors = [
   {
     id: "01",
     name: "Dr. Anil Singh",
-    specialty: "Surgeon",
+    specialization: "Surgeon",
     avgRating: 4.2,
     totalRating: 403,
     photo: doctorImg01,
@@ -17,7 +17,7 @@ export const doctors = [
   {
     id: "02",
     name: "Dr. Abhimanyu Sinha",
-    specialty: "Neurologist",
+    specialization: "Neurologist",
     avgRating: 3.8,
     totalRating: 356,
     photo: doctorImg02,
@@ -27,7 +27,7 @@ export const doctors = [
   {
     id: "03",
     name: "Dr. Punit Tiwari",
-    specialty: "Dermatologist",
+    specialization: "Dermatologist",
     avgRating: 4.9,
     totalRating: 772,
     photo: doctorImg03,
@@ -37,7 +37,7 @@ export const doctors = [
   {
     id: "04",
     name: "Dr. Rajiv Ranjan",
-    specialty: "Surgeon",
+    specialization: "Surgeon",
     avgRating: 4.2,
     totalRating: 607,
     photo: doctorImg04,

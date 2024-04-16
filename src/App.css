@@ -10,7 +10,10 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-
+.img{
+  width: 300px;
+  height: 300px;
+}
 .swiper-pagination-bullet{
   width: 12px !important;
   height: 12px !important;

@@ -31,7 +31,7 @@ const Signup = () => {
     setSelectedFile(data.url);
     setFormData({ ...formData, photo: data.url });
     setPreviewURL(data.url);
-    console.log(data.url)
+
   };
 
   const submitHandler = async (e) => {

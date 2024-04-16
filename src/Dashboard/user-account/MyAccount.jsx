@@ -5,19 +5,20 @@ import Profile from "./Profile";
 import MyBooking from "./MyBooking";
 import useGetProfile from "../../hooks/useFetchData";
 import { BASE_URL } from "../../config";
-import Loading from "../../components/Loader/Loading";
+import Loading from "../../components/loader/Loader";
 import Error from "../../components/error/Error";
 import { toast } from "react-toastify";
 
 
 const MyAccount = () => {
-  const { dispatch, user } = useContext(authContext);
+  let { dispatch, user } = useContext(authContext);
   const [tab, setTab] = useState("bookings");
   const {data:userData, loading, error} = useGetProfile(`${BASE_URL}/users/profile/me`)
 
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    user =null
     toast.warning('Logged Out')
   };
 

@@ -45,7 +45,6 @@ const { dispatch } = useContext(authContext);
         },
       });
 
-      console.log(result);
  
       setLoading(false);
       toast.success(result.message);
